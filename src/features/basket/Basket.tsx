@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Header: React.FC = () => {
+export const Basket: React.FC = () => {
 
     return (
         <div>
-
+            basket
         </div>
     )
 }
