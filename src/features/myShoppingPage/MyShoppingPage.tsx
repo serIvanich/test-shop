@@ -4,7 +4,9 @@ export const MyShoppingPage: React.FC = () => {
 
     return (
         <div>
-            basket
+            <div></div>
+            <div></div>
+
         </div>
     )
 }
