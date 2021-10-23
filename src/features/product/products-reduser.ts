@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 
-export const slice = createSlice({
+const slice = createSlice({
 
-  name: 'todoLists',
+  name: 'products',
   initialState: [] as Array<ProductType>,
   reducers: {
   },
@@ -11,11 +11,16 @@ export const slice = createSlice({
   }
 })
 
+export const productsReducer = slice.reducer
+
 
 type ProductType = {
   id: number 
   name: string
-  ceil: number
+  price: number
+  photo: any
+  info: string
+  category: string
 
 }
 
