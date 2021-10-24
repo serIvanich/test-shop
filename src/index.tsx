@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
+import  firebase from 'firebase/app'
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC88x9tvcoyb5IizAqFU_0DLknS9tZncHI",
+    authDomain: "shop-test-4f18b.firebaseapp.com",
+    databaseURL: "https://shop-test-4f18b-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "shop-test-4f18b",
+    storageBucket: "shop-test-4f18b.appspot.com",
+    messagingSenderId: "448526955353",
+    appId: "1:448526955353:web:b2bb069b30d0b102f1d248"
+}
+
+firebase.initializeApp(firebaseConfig)
 
 ReactDOM.render(
   <React.StrictMode>
