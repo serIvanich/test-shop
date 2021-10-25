@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-import  firebase from 'firebase/app'
+import firebase from 'firebase/compat/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyC88x9tvcoyb5IizAqFU_0DLknS9tZncHI",

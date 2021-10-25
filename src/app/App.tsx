@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/product/ProductsPage";
-import  firebase from 'firebase/app'
+import firebase from 'firebase/compat/app'
 
 
 
