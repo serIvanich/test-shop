@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/App';
@@ -17,11 +17,17 @@ const firebaseConfig = {
     appId: "1:448526955353:web:b2bb069b30d0b102f1d248"
 }
 
-firebase.initializeApp(firebaseConfig)
+const app = firebase.initializeApp(firebaseConfig)
+
+export const Context =  createContext<any>({})
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Context.Provider value={{firebase, app}} >
+          <App />
+      </Context.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
