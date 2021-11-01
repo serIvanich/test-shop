@@ -2,20 +2,22 @@ import React, {useContext, useEffect} from 'react';
 import './App.css';
 import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/product/ProductsPage";
-import {getDatabase} from 'firebase/database';
+import {getDatabase, onValue, ref} from "firebase/database";
 import {Context} from "../index";
-import {  getApp } from "firebase/app"
 
 function App() {
 
     const {app} = useContext(Context)
     useEffect(() => {
         debugger
-        const db = getDatabase(app)
 
-
-        console.log(getApp().name)
-
+        const db = getDatabase();
+        const starCountRef = ref(db, 'products');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            console.log(data)
+            // updateStarCount(postElement, data);
+        });
 
     }, [])
 
