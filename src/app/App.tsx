@@ -40,9 +40,9 @@ function App() {
         <div className="App">
             <Header/>
             <Switch>
-                <Route path={'/'} render={() => <Main/>} />
-                <Route path={'/product-page'} render={() => <ProductsPage/>} />
-                <Route path={'/shopping-cart'} render={() => <ShoppingCart/>} />
+                <Route exact path={'/'} render={() => <Main/>} />
+                <Route path={'/products'} render={() => <ProductsPage/>} />
+                <Route path={'/cart'} render={() => <ShoppingCart/>} />
             </Switch>
 
         </div>

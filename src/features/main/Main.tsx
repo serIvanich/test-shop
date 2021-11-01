@@ -6,7 +6,7 @@ export const Main: React.FC = () => {
 
     return (
         <div>
-            <NavLink to={'/product-page'}><p>SHOP TUR</p></NavLink>
+            <NavLink to={'/products'}><p>SHOP TUR</p></NavLink>
         </div>
     )
 }
