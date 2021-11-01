@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import firebase from 'firebase/compat/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import {BrowserRouter} from "react-router-dom";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC88x9tvcoyb5IizAqFU_0DLknS9tZncHI",
@@ -26,7 +27,9 @@ export const Context =  createContext<any>({})
 ReactDOM.render(
   <React.StrictMode>
       <Context.Provider value={{firebase, app}} >
-          <App />
+          <BrowserRouter>
+              <App/>
+          </BrowserRouter>
       </Context.Provider>
   </React.StrictMode>,
   document.getElementById('root')

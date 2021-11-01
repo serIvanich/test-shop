@@ -4,6 +4,9 @@ import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/product/ProductsPage";
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import {Context} from "../index";
+import {Route, Switch} from "react-router-dom";
+import {ShoppingCart} from "../features/shoppingCart/ShoppingCart";
+import { Main } from '../features/main/Main';
 
 
 function App() {
@@ -36,7 +39,11 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <ProductsPage/>
+            <Switch>
+                <Route path={'/'} render={() => <Main/>} />
+                <Route path={'/product-page'} render={() => <ProductsPage/>} />
+                <Route path={'/shopping-cart'} render={() => <ShoppingCart/>} />
+            </Switch>
 
         </div>
     );
