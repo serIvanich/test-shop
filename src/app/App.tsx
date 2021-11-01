@@ -2,14 +2,15 @@ import React, {useContext, useEffect} from 'react';
 import './App.css';
 import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/product/ProductsPage";
-import {getDatabase, onValue, ref} from "firebase/database";
+import {getDatabase, onValue, ref, set} from "firebase/database";
 import {Context} from "../index";
+
 
 function App() {
 
     const {app} = useContext(Context)
     useEffect(() => {
-        debugger
+
 
         const db = getDatabase();
         const starCountRef = ref(db, 'products');
@@ -21,6 +22,16 @@ function App() {
 
     }, [])
 
+    function writeProdData(imageUrl: any) {
+        const db = getDatabase();
+        set(ref(db, 'products/prod1'), {
+
+            product_picture: imageUrl
+        });
+
+    }
+
+    writeProdData('hello data')
 
     return (
         <div className="App">
