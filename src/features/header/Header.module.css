@@ -1,0 +1,14 @@
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 13vh;
+    padding: 3vh 1vh 1vh 1vh;
+    background-color: aliceblue;
+}
+
+.navCart {
+
+
+}
