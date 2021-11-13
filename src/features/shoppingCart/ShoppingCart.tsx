@@ -7,7 +7,7 @@ export const ShoppingCart: React.FC = () => {
     return (
         <div>
             <div>there is not products in your shopping cart</div>
-            <div className={s.containerNavlinks}>
+            <div className={s.containerNavLinks}>
                 <NavLink to={'/'}>Go to start</NavLink>
                 <NavLink to={'/products'}>To shopping again</NavLink>
             </div>

@@ -2,7 +2,7 @@
 // мы задаём структуру нашего единственного объекта-состояния
 import {combineReducers} from 'redux';
 import { shoppingCartReducer } from '../features/shoppingCart/shopping-cart-reduser';
-import {productsReducer} from './../features/product/products-reduser'
+import {productsReducer} from '../features/products/products-reduser'
 
 
 export const rootReducer = combineReducers({
