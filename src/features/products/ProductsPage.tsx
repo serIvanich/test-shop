@@ -13,17 +13,19 @@ export const ProductsPage: React.FC = () => {
     const {getProducts} = useActions(actionProducts)
 
     useEffect(() => {
-        const db = getDatabase();
-        const starCountRef = ref(db, 'products');
-        onValue(starCountRef, (snapshot) => {
-            const data = snapshot.val();
-            // const dataInState = data.map((i: ProductType) => ({[i.id]: i}))
+        if (!products.length) {
+            const db = getDatabase();
+            const starCountRef = ref(db, 'products');
+            onValue(starCountRef, (snapshot) => {
+                const data = snapshot.val();
+                // const dataInState = data.map((i: ProductType) => ({[i.id]: i}))
 
-            getProducts(data)
+                getProducts(data)
 
-        })
-
+            })
+        }
     }, [])
+
 
     if (products.length === 0) {
         return <Preloader/>

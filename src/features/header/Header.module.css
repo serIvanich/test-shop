@@ -2,9 +2,9 @@
 .container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
     height: 13vh;
-    padding: 3vh 1vh 1vh 1vh;
+    padding: 0 3vw;
     background-color: aliceblue;
 }
 
