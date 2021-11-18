@@ -34,7 +34,7 @@ export const ProductsPage: React.FC = () => {
     return (
         <Container maxWidth="lg">
             <Grid container spacing={4} justifyContent={'center'}>
-                {products.map((i: ProductType) => <Grid item><Product key={i.id + i.name} prod={i}/></Grid>)}
+                {products.map((i: ProductType) => <Grid item key={i.id + i.name}><Product prod={i}/></Grid>)}
             </Grid>
 
         </Container>

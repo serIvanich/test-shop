@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2, color: 'lightgrey'}}
                     >
                         <MenuIcon />
                     </IconButton>
