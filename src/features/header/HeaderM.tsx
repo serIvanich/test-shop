@@ -6,15 +6,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import {Link} from "@mui/material";
+
+
 
 
 export default function ButtonAppBar() {
 
 
     return (
-        <Box sx={{ flexGrow: 1, height: 130}}>
-            <AppBar position="static" sx={{height: '100%'}}>
+        <Box sx={{ flexGrow: 1, height: 100}}>
+            <AppBar position="static" sx={{height: '100%', backgroundColor: 'floralwhite'}}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -25,12 +27,14 @@ export default function ButtonAppBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'lightgrey' }}>
                         My shop
                     </Typography>
-                    <Button color="inherit">
-                        <Link to={'/cart'}>shopping cart</Link>
-                    </Button>
+
+                        <Link href={'/cart'} underline="hover" sx={{ color: 'lightgrey' }}>
+                            shopping cart
+                        </Link>
+
                 </Toolbar>
             </AppBar>
         </Box>
