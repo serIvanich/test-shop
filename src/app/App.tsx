@@ -6,6 +6,7 @@ import {Context} from "../index";
 import {Route, Switch} from "react-router-dom";
 import {ShoppingCart} from "../features/shoppingCart/ShoppingCart";
 import {Main} from '../features/main/Main';
+import HeaderM from '../features/header/HeaderM';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header/>
+            <HeaderM/>
             <div className={'content'}>
                 <Switch>
                     <Route exact path={'/'} render={() => <Main/>}/>
