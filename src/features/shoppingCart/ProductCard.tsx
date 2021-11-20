@@ -1,14 +1,14 @@
 import React from 'react'
 import {Paper} from "@mui/material";
+import {Product} from "../products/product/Product";
+import {ProductType} from "../products/products-reduser";
 
 type ProductCardType = {
-
+    prod: ProductType
 }
 
-export const ProductCard: React.FC<ProductCardType> = () => {
+export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
     return (
-        <Paper >
-
-        </Paper>
+        <Product prod={prod}/>
     )
 }

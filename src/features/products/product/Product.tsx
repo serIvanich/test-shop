@@ -5,6 +5,7 @@ import {useActions} from "../../../utils/redux-utils";
 import {actionShoppingCart} from "../../shoppingCart/shopping-cart-reduser";
 
 export const Product: React.FC<ProductPropsType> = ({prod}) => {
+
     const {addProductToCart} = useActions(actionShoppingCart)
     const addProduct = () => {
         addProductToCart(prod)

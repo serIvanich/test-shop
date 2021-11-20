@@ -3,7 +3,7 @@ import './App.css';
 import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/products/ProductsPage";
 import {Context} from "../index";
-import {Route, Switch} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {ShoppingCart} from "../features/shoppingCart/ShoppingCart";
 import {Main} from '../features/main/Main';
 import HeaderM from '../features/header/HeaderM';
@@ -17,11 +17,11 @@ function App() {
         <div className="App">
             <HeaderM/>
             <div className={'content'}>
-                <Switch>
-                    <Route exact path={'/'} render={() => <Main/>}/>
-                    <Route path={'/products'} render={() => <ProductsPage/>}/>
-                    <Route path={'/cart'} render={() => <ShoppingCart/>}/>
-                </Switch>
+                <Routes>
+                    <Route path={'/'}  element={<Main/>}/>
+                    <Route path={'/products'}  element={<ProductsPage/>}/>
+                    <Route path={'/cart'}  element={<ShoppingCart/>}/>
+                </Routes>
             </div>
 
 

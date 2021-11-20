@@ -15,7 +15,9 @@ export const ShoppingCart: React.FC = () => {
                 <Grid item xs={8}>
                     <Grid item>
                         {productsInShoppingCart.length === 0 ? 'there is not products in your shopping cart'
-                            : productsInShoppingCart.map((item, ind) => <ProductCard key={ind}/>)}
+                            : productsInShoppingCart.map((item, ind) =>{
+                                return <ProductCard key={ind} prod={item}/>
+                            })}
                     </Grid>
                 </Grid>
                 <Grid item xs={4}> for order

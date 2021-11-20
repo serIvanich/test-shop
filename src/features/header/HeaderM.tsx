@@ -6,13 +6,16 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import {Link} from "@mui/material";
+import { useNavigate } from "react-router-dom"
 
 
 
 
 export default function ButtonAppBar() {
-
+    let navigate = useNavigate();
+const goToShopping = () => {
+    navigate('/cart')
+}
 
     return (
         <Box sx={{ flexGrow: 1, height: 100}}>
@@ -31,9 +34,9 @@ export default function ButtonAppBar() {
                         My shop
                     </Typography>
 
-                        <Link href={'/cart'} underline="hover" sx={{ color: 'lightgrey' }}>
+                        <Button onClick={goToShopping}  sx={{ color: 'lightgrey' }}>
                             shopping cart
-                        </Link>
+                        </Button>
 
                 </Toolbar>
             </AppBar>

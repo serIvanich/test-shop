@@ -10,6 +10,7 @@ const slice = createSlice({
   },
   reducers: {
     addProductToCart(state, action: PayloadAction< ProductType>) {
+      debugger
       state.products.push(action.payload)
     }
   },

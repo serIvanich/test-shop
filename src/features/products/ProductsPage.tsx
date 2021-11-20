@@ -10,6 +10,9 @@ import {Container, Grid} from "@mui/material";
 
 export const ProductsPage: React.FC = () => {
     const products = useSelector<AppRootStateType, Array<ProductType>>(state => state.products)
+    const productsInShoppingCart2 = useSelector<AppRootStateType, Array<ProductType>>(
+        state => state.shoppingCart.products)
+    console.log(productsInShoppingCart2)
     const {getProducts} = useActions(actionProducts)
 
     useEffect(() => {
