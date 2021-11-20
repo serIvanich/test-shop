@@ -1,19 +1,30 @@
+import {Container, Grid} from '@mui/material'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import s from './ShoppingCart.module.css'
+import {ProductCard} from "./ProductCard";
+import {ProductType} from "../products/products-reduser";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../utils/types";
 
 export const ShoppingCart: React.FC = () => {
 
+    const productsInShoppingCart = useSelector<AppRootStateType, Array<ProductType>>(
+        state => state.shoppingCart.products)
     return (
-        <div>
-            <div>there is not products in your shopping cart</div>
-            <div className={s.containerNavLinks}>
-                <NavLink to={'/'}>Go to start</NavLink>
-                <NavLink to={'/products'}>To shopping again</NavLink>
-            </div>
+        <Container>
+            <Grid container>
+                <Grid item xs={8}>
+                    <Grid item>
+                        {productsInShoppingCart.length === 0 ? 'there is not products in your shopping cart'
+                            : productsInShoppingCart.map((item, ind) => <ProductCard key={ind}/>)}
+                    </Grid>
+                </Grid>
+                <Grid item xs={4}> for order
 
-            <div></div>
 
-        </div>
+                </Grid>
+
+
+            </Grid>
+        </Container>
     )
 }

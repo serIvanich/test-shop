@@ -1,10 +1,17 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {ProductType} from "../products/products-reduser";
 
 const slice = createSlice({
 
   name: 'shoppingCart',
-  initialState: [] as Array<ShoppingCartType>,
+  initialState: {
+    products: [] as Array<ShoppingCartType>,
+
+  },
   reducers: {
+    addProductToCart(state, action: PayloadAction< ProductType>) {
+      state.products.push(action.payload)
+    }
   },
   extraReducers: (builder) => {
       return builder
@@ -12,7 +19,7 @@ const slice = createSlice({
 })
 
 export const shoppingCartReducer = slice.reducer
-
+export const actionShoppingCart = slice.actions
 
 type ShoppingCartType = {
   id: number 
