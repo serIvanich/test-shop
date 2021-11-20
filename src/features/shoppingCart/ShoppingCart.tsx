@@ -4,6 +4,7 @@ import {ProductCard} from "./ProductCard";
 import {ProductType} from "../products/products-reduser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../utils/types";
+import {CustomerForm} from "../customerForm/CustomerForm";
 
 export const ShoppingCart: React.FC = () => {
 
@@ -15,13 +16,13 @@ export const ShoppingCart: React.FC = () => {
                 <Grid item xs={8}>
                     <Grid item>
                         {productsInShoppingCart.length === 0 ? 'there is not products in your shopping cart'
-                            : productsInShoppingCart.map((item, ind) =>{
+                            : productsInShoppingCart.map((item, ind) => {
                                 return <ProductCard key={ind} prod={item}/>
                             })}
                     </Grid>
                 </Grid>
-                <Grid item xs={4}> for order
-
+                <Grid item xs={4}>
+                    <CustomerForm/>
 
                 </Grid>
 

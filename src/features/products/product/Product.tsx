@@ -3,12 +3,17 @@ import {ProductType} from "../products-reduser";
 import {Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Paper, Typography} from "@mui/material";
 import {useActions} from "../../../utils/redux-utils";
 import {actionShoppingCart} from "../../shoppingCart/shopping-cart-reduser";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../../utils/types";
 
 export const Product: React.FC<ProductPropsType> = ({prod}) => {
-
+    const productsInShoppingCart = useSelector<AppRootStateType, Array<ProductType>>(
+        state => state.shoppingCart.products)
     const {addProductToCart} = useActions(actionShoppingCart)
     const addProduct = () => {
-        addProductToCart(prod)
+        if (productsInShoppingCart.length === 0 || productsInShoppingCart.every(i => i.id !== prod.id)) {
+            addProductToCart(prod)
+        }
     }
     return (
         <Card sx={{width: 300}}>

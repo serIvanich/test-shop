@@ -1,5 +1,4 @@
 import React from 'react'
-import {Paper} from "@mui/material";
 import {Product} from "../products/product/Product";
 import {ProductType} from "../products/products-reduser";
 
