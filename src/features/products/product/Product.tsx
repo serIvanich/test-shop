@@ -16,7 +16,7 @@ export const Product: React.FC<ProductPropsType> = ({prod}) => {
         }
     }
     return (
-        <Card sx={{width: 300}}>
+        <Card sx={{width: 300, marginBottom: 5}}>
             <CardMedia
                 component="img"
                 height="140"

@@ -1,4 +1,4 @@
-import {Container, Grid} from '@mui/material'
+import {Button, Container, Grid} from '@mui/material'
 import React from 'react'
 import {ProductCard} from "./ProductCard";
 import {ProductType} from "../products/products-reduser";
@@ -28,6 +28,7 @@ export const ShoppingCart: React.FC = () => {
 
 
             </Grid>
+
         </Container>
     )
 }
