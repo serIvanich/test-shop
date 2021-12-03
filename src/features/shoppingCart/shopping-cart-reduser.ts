@@ -5,13 +5,19 @@ const slice = createSlice({
 
   name: 'shoppingCart',
   initialState: {
-    products: [] as Array<ShoppingCartType>,
+    products: [] as Array<ShoppingCartStateType>,
 
   },
   reducers: {
-    addProductToCart(state, action: PayloadAction< ProductType>) {
-      state.products.push(action.payload)
-    }
+    addProductToCart(state, action: PayloadAction< ShoppingCartStateType>) {
+
+      state.products.push({...action.payload})
+    },
+    changeCount(state, action: PayloadAction<{id: number}>) {
+      state.products.forEach(i => {if(i.id === action.payload.id){
+        i.count++
+      }})
+    },
   },
   extraReducers: (builder) => {
       return builder
@@ -21,15 +27,16 @@ const slice = createSlice({
 export const shoppingCartReducer = slice.reducer
 export const actionShoppingCart = slice.actions
 
-type ShoppingCartType = {
-  id: number 
-  name: string
-  price: number
-  photo: any
-  info: string
-  category: string
-
-}
+export type ShoppingCartStateType = ProductType & {count: number}
+// export type ShoppingCartType = {
+//   id: number
+//   name: string
+//   price: number
+//   photo: any
+//   info: string
+//   category: string
+// count: number
+// }
 
 
 //redusers

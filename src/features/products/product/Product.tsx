@@ -1,18 +1,26 @@
 import React from "react";
 import {ProductType} from "../products-reduser";
-import {Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Paper, Typography} from "@mui/material";
+import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
 import {useActions} from "../../../utils/redux-utils";
-import {actionShoppingCart} from "../../shoppingCart/shopping-cart-reduser";
+import {actionShoppingCart, ShoppingCartStateType} from "../../shoppingCart/shopping-cart-reduser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/types";
 
 export const Product: React.FC<ProductPropsType> = ({prod}) => {
-    const productsInShoppingCart = useSelector<AppRootStateType, Array<ProductType>>(
+    const productsInShoppingCart = useSelector<AppRootStateType, Array<ShoppingCartStateType>>(
         state => state.shoppingCart.products)
-    const {addProductToCart} = useActions(actionShoppingCart)
+    const {addProductToCart, changeCount} = useActions(actionShoppingCart)
     const addProduct = () => {
-        if (productsInShoppingCart.length === 0 || productsInShoppingCart.every(i => i.id !== prod.id)) {
-            addProductToCart(prod)
+        if (productsInShoppingCart.length > 0 && productsInShoppingCart.some(i => {
+            if (i.id === prod.id) {
+                changeCount({id: i.id})
+                return true
+            }
+        })) {
+            return
+        } else {
+
+            addProductToCart({...prod, count: 1})
         }
     }
     return (
