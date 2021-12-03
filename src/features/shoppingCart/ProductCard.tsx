@@ -8,21 +8,25 @@ type ProductCardType = {
 }
 
 export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
-    const {changeCount} = useActions(actionShoppingCart)
+    const {changeCount, deleteProductAtCart} = useActions(actionShoppingCart)
 
     const incrementProduct = () => {
         changeCount({id: prod.id, count: (prod.count+1)})
     }
     const decrementProduct = () => {
-        changeCount({id: prod.id, count: (prod.count-1)})
+        if (prod.count - 1 === 0) {
+            deleteProductAtCart({id: prod.id})
+        }else {
+            changeCount({id: prod.id, count: (prod.count - 1)})
+        }
     }
 
     return (
         <Card sx={{
             display: "flex",
             flexDirection: 'row',
-            height: 150,
-            width: 600,
+            height: '100%',
+            width: '55vw',
             marginBottom: 5
         }}>
 

@@ -17,6 +17,9 @@ const slice = createSlice({
       state.products.forEach(i => i.id === action.payload.id ? i.count = action.payload.count : null
      )
     },
+    deleteProductAtCart(state, action: PayloadAction<{id: number}>) {
+      state.products = state.products.filter(i => i.id !== action.payload.id? i: null)
+    }
   },
   extraReducers: (builder) => {
       return builder
