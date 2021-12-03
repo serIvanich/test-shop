@@ -1,12 +1,22 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from '@mui/material';
 import React from 'react'
-import {ShoppingCartStateType} from "./shopping-cart-reduser";
+import {actionShoppingCart, ShoppingCartStateType} from "./shopping-cart-reduser";
+import {useActions} from "../../utils/redux-utils";
 
 type ProductCardType = {
     prod: ShoppingCartStateType
 }
 
 export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
+    const {changeCount} = useActions(actionShoppingCart)
+
+    const incrementProduct = () => {
+        changeCount({id: prod.id, count: (prod.count+1)})
+    }
+    const decrementProduct = () => {
+        changeCount({id: prod.id, count: (prod.count-1)})
+    }
+
     return (
         <Card sx={{
             display: "flex",
@@ -42,11 +52,9 @@ export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
             </CardContent>
             <CardActions>
 
-                <Button size='small' onClick={() => {
-                }}>+</Button>
+                <Button size='small' onClick={incrementProduct}>+</Button>
                 {prod.count}
-                <Button size='small' onClick={() => {
-                }}>-</Button>
+                <Button size='small' onClick={decrementProduct}>-</Button>
 
             </CardActions>
 

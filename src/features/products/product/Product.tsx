@@ -7,13 +7,16 @@ import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/types";
 
 export const Product: React.FC<ProductPropsType> = ({prod}) => {
+
     const productsInShoppingCart = useSelector<AppRootStateType, Array<ShoppingCartStateType>>(
         state => state.shoppingCart.products)
     const {addProductToCart, changeCount} = useActions(actionShoppingCart)
+
     const addProduct = () => {
         if (productsInShoppingCart.length > 0 && productsInShoppingCart.some(i => {
+
             if (i.id === prod.id) {
-                changeCount({id: i.id})
+                changeCount({id: i.id, count: (i.count+1)})
                 return true
             }
         })) {

@@ -13,10 +13,9 @@ const slice = createSlice({
 
       state.products.push({...action.payload})
     },
-    changeCount(state, action: PayloadAction<{id: number}>) {
-      state.products.forEach(i => {if(i.id === action.payload.id){
-        i.count++
-      }})
+    changeCount(state, action: PayloadAction<{id: number, count: number}>) {
+      state.products.forEach(i => i.id === action.payload.id ? i.count = action.payload.count : null
+     )
     },
   },
   extraReducers: (builder) => {
