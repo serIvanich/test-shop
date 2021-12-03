@@ -5,10 +5,11 @@ import {ProductType} from "../products/products-reduser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../utils/types";
 import {CustomerForm} from "../customerForm/CustomerForm";
+import {ShoppingCartStateType} from "./shopping-cart-reduser";
 
 export const ShoppingCart: React.FC = () => {
 
-    const productsInShoppingCart = useSelector<AppRootStateType, Array<ProductType>>(
+    const productsInShoppingCart = useSelector<AppRootStateType, Array<ShoppingCartStateType>>(
         state => state.shoppingCart.products)
     return (
         <Container>
