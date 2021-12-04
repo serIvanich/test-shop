@@ -50,6 +50,9 @@ export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
                 <Typography variant="body2" color="text.secondary">
                     {prod.info}
                 </Typography>
+ <Typography variant="body2" color="text.secondary">
+                    {`1 х ${prod.price}`}
+                </Typography>
                 <Typography variant="subtitle1" component="div">
                     price: {prod.price * prod.count}
                 </Typography>
