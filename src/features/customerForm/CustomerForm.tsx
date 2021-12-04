@@ -20,23 +20,19 @@ export const CustomerForm: React.FC = () => {
             const errors: FormikErrorType = {};
             if (!values.name) {
                 errors.name = 'Required';
-            } else if (!/^[A-Z a-z]{2,4}$/i.test(values.name)) {
+            } else if (!/^[a-zA-Z]*$/i.test(values.name)) {
                 errors.name = 'Invalid name';
             }
-// if (!values.surname) {
-//                 errors.surname = 'Required';
-//             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.surname)) {
-//                 errors.surname = 'Invalid email address';
-//             }
-// if (!values.address) {
-//                 errors.address = 'Required';
-//             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.address)) {
-//                 errors.address = 'Invalid email address';
-//             }
+            if (values.surname.length > 20) {
+                errors.surname = 'Invalid surname(not be more 20 letters)';
+            }
+            if (values.address.length > 30) {
+                errors.address = 'Invalid length address more in 30 letters';
+            }
             if (!values.phone) {
                 errors.phone = 'Required'
             } else if (values.phone.length !== 11) {
-                errors.phone = 'telephone number may be 11 simbol'
+                errors.phone = 'telephone number may be 11 symbols'
             }
             return errors;
         },
@@ -117,58 +113,6 @@ export const CustomerForm: React.FC = () => {
         </>
     )
 }
-
-// if (isLoggedIn) {
-//     return <Redirect to={'/'}/>
-// }
-//
-// return <Grid container justify="center">
-//     <Grid item xs={4}>
-//         <form onSubmit={formik.handleSubmit}>
-//             <FormControl>
-//                 <FormLabel>
-//                     <p>To log in get registered
-//                         <a href={'https://social-network.samuraijs.com/'}
-//                            target={'_blank'}>here
-//                         </a>
-//                     </p>
-//                     <p>or use common test account credentials:</p>
-//                     <p>Email: free@samuraijs.com</p>
-//                     <p>Password: free</p>
-//                 </FormLabel>
-//                 <FormGroup>
-//                     <TextField
-//                         label="Email"
-//                         margin="normal"
-//                         {...formik.getFieldProps('email')}
-//                     />
-//                     {formik.touched.email && formik.errors.email &&
-//                     <div style={{color: 'red'}}>{formik.errors.email}</div>}
-//                     <TextField
-//                         type="password"
-//                         label="Password"
-//                         margin="normal"
-//                         // name='password'
-//                         // onChange={formik.handleChange}
-//                         // onBlur={formik.handleBlur}
-//                         // value={formik.values.password}
-//                         {...formik.getFieldProps('password')}
-//                     />
-//                     {formik.touched.password && formik.errors.password &&
-//                     <div style={{color: 'red'}}>{formik.errors.password}</div>}
-//
-//                     <FormControlLabel
-//                         label={'Remember me'}
-//                         control={<Checkbox/>}
-//                         {...formik.getFieldProps('rememberMe')}
-//                     />
-//                     <Button type={'submit'} variant={'contained'} color={'primary'}>Login</Button>
-//                 </FormGroup>
-//             </FormControl>
-//         </form>
-//     </Grid>
-// </Grid>
-// }
 
 type FormikErrorType = {
     name?: string
