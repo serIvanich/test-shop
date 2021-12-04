@@ -1,5 +1,5 @@
 import {getDatabase, onValue, ref, set} from "firebase/database";
-
+import ProductImage from './assecs/image/parfum.jpg'
 
 let products = [
 ]
@@ -7,7 +7,7 @@ const prod1 =  {
     id: 1,
     name: 'pen',
     price: 4.50,
-    photo: 'url:',
+    photo: ProductImage,
     info: 'it is a good pen',
     category: 'stationery',
 }
@@ -71,7 +71,7 @@ function writeProdData(data: any) {
     });
 
 }
-// writeProdData(products)
+writeProdData(products)
 
 export const getDataFareBase = (dispatch: any, getDataProducts: any) => {
     debugger

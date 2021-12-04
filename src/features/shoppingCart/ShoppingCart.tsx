@@ -1,16 +1,23 @@
 import {Button, Container, Grid} from '@mui/material'
 import React from 'react'
 import {ProductCard} from "./ProductCard";
-import {ProductType} from "../products/products-reduser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../utils/types";
 import {CustomerForm} from "../customerForm/CustomerForm";
 import {ShoppingCartStateType} from "./shopping-cart-reduser";
+import {useNavigate} from "react-router-dom";
 
 export const ShoppingCart: React.FC = () => {
 
     const productsInShoppingCart = useSelector<AppRootStateType, Array<ShoppingCartStateType>>(
         state => state.shoppingCart.products)
+
+    let navigate = useNavigate()
+    const clickToReturnShopping = () => {
+        navigate('/products')
+    }
+
+
     return (
         <Container>
             <Grid container>
@@ -23,8 +30,8 @@ export const ShoppingCart: React.FC = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-                    <CustomerForm/>
-
+                    {productsInShoppingCart.length > 0 && <CustomerForm/>}
+                    <Button sx={{margin: '50px auto'}} onClick={clickToReturnShopping}>return to shopping</Button>
                 </Grid>
 
 

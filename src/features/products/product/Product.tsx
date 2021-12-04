@@ -5,6 +5,7 @@ import {useActions} from "../../../utils/redux-utils";
 import {actionShoppingCart, ShoppingCartStateType} from "../../shoppingCart/shopping-cart-reduser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/types";
+import ownProductImage from '../../../assecs/image/own-product-image.png'
 
 export const Product: React.FC<ProductPropsType> = ({prod}) => {
 
@@ -31,7 +32,7 @@ export const Product: React.FC<ProductPropsType> = ({prod}) => {
             <CardMedia
                 component="img"
                 height="140"
-                image={prod.photo}
+                image={ownProductImage}
                 alt="product image"
             />
             <CardContent>

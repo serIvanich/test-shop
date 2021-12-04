@@ -2,6 +2,7 @@ import {Button, Card, CardActions, CardContent, CardMedia, Typography} from '@mu
 import React from 'react'
 import {actionShoppingCart, ShoppingCartStateType} from "./shopping-cart-reduser";
 import {useActions} from "../../utils/redux-utils";
+import ownProductImage from '../../assecs/image/own-product-image.png'
 
 type ProductCardType = {
     prod: ShoppingCartStateType
@@ -33,7 +34,7 @@ export const ProductCard: React.FC<ProductCardType> = ({prod}) => {
             <CardMedia
                 component="img"
 
-                image={prod.photo}
+                image={ownProductImage}
                 alt="product image"
                 sx={{
                     width: '170px',

@@ -1,13 +1,8 @@
 import React from 'react'
 import {Button, Paper, TextField} from "@mui/material";
-import {useNavigate} from "react-router-dom";
 import {FormikHelpers, useFormik} from "formik";
 
 export const CustomerForm: React.FC = () => {
-    let navigate = useNavigate()
-    const clickToReturnShopping = () => {
-        navigate('/products')
-    }
 
     const formik = useFormik({
         initialValues: {
@@ -49,61 +44,61 @@ export const CustomerForm: React.FC = () => {
     return (
         <>
             <form onSubmit={formik.handleSubmit}>
-            <Paper elevation={21} sx={{
-                height: 400,
-                display: 'grid',
-                padding: 3
-            }}>
+                <Paper elevation={21} sx={{
+                    height: 400,
+                    display: 'grid',
+                    padding: 3
+                }}>
 
                     <>
-                    <TextField
-                        id="name"
-                        label="name"
-                        variant="standard"
-                        margin="normal"
-                        {...formik.getFieldProps('name')}
-                    />
-                    {formik.touched.name && formik.errors.name &&
-                    <div style={{color: 'red'}}>{formik.errors.name}</div>}
+                        <TextField
+                            id="name"
+                            label="name"
+                            variant="standard"
+                            margin="normal"
+                            {...formik.getFieldProps('name')}
+                        />
+                        {formik.touched.name && formik.errors.name &&
+                        <div style={{color: 'red'}}>{formik.errors.name}</div>}
                     </>
                     <>
-                    <TextField
-                        id="surname"
-                        label="surname"
-                        variant="standard"
-                        margin="normal"
-                        {...formik.getFieldProps('surname')}
-                    />
-                    {formik.touched.surname && formik.errors.surname &&
-                    <div style={{color: 'red'}}>{formik.errors.surname}</div>}
+                        <TextField
+                            id="surname"
+                            label="surname"
+                            variant="standard"
+                            margin="normal"
+                            {...formik.getFieldProps('surname')}
+                        />
+                        {formik.touched.surname && formik.errors.surname &&
+                        <div style={{color: 'red'}}>{formik.errors.surname}</div>}
                     </>
                     <>
-                    <TextField
-                        id="address"
-                        label="address"
-                        variant="standard"
-                        margin="normal"
-                        {...formik.getFieldProps('address')}
-                    />
-                    {formik.touched.address && formik.errors.address &&
-                    <div style={{color: 'red'}}>{formik.errors.address}</div>}
+                        <TextField
+                            id="address"
+                            label="address"
+                            variant="standard"
+                            margin="normal"
+                            {...formik.getFieldProps('address')}
+                        />
+                        {formik.touched.address && formik.errors.address &&
+                        <div style={{color: 'red'}}>{formik.errors.address}</div>}
                     </>
                     <>
-                    <TextField
-                        id="phone"
-                        label="phone"
-                        variant="standard"
-                        margin="normal"
-                        {...formik.getFieldProps('phone')}
-                    />
-                    {formik.touched.phone && formik.errors.phone &&
-                    <div style={{color: 'red'}}>{formik.errors.phone}</div>}
+                        <TextField
+                            id="phone"
+                            label="phone"
+                            variant="standard"
+                            margin="normal"
+                            {...formik.getFieldProps('phone')}
+                        />
+                        {formik.touched.phone && formik.errors.phone &&
+                        <div style={{color: 'red'}}>{formik.errors.phone}</div>}
                     </>
                     <Button type={'submit'} variant={'contained'} color={'primary'}>order</Button>
 
-            </Paper>
-        </form>
-            <Button sx={{margin: '50px auto'}} onClick={clickToReturnShopping}>return to shopping</Button>
+                </Paper>
+            </form>
+
         </>
     )
 }
