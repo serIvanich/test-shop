@@ -37,15 +37,9 @@ export const CustomerForm: React.FC = () => {
             return errors;
         },
 
-        onSubmit: async (values: FormValuesType, formikHelpers: FormikHelpers<FormValuesType>) => {
+        onSubmit: (values: FormValuesType, formikHelpers: FormikHelpers<FormValuesType>) => {
 
-            // const resultAction = await dispatch(authActions.login(values))
-            // if (authActions.login.rejected.match(resultAction)) {
-            //     if (resultAction.payload?.fieldsErrors?.length) {
-            //         const error = resultAction.payload?.fieldsErrors[0]
-            //         formikHelpers.setFieldError(error.field, error.error)
-            //     }
-            // }
+            console.log(values, formikHelpers)
 
 
             // formik.resetForm()
@@ -105,7 +99,7 @@ export const CustomerForm: React.FC = () => {
                     {formik.touched.phone && formik.errors.phone &&
                     <div style={{color: 'red'}}>{formik.errors.phone}</div>}
                     </>
-                    <Button>order</Button>
+                    <Button type={'submit'} variant={'contained'} color={'primary'}>order</Button>
 
             </Paper>
         </form>
