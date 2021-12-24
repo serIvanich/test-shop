@@ -1,17 +1,25 @@
-import React, {useContext} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-import {Header} from "../features/header/Header";
 import {ProductsPage} from "../features/products/ProductsPage";
-import {Context} from "../index";
 import {Route, Routes} from "react-router-dom";
 import {ShoppingCart} from "../features/shoppingCart/ShoppingCart";
 import {Main} from '../features/main/Main';
 import HeaderM from '../features/header/HeaderM';
+import {loadSettingsValue} from "../../utility/localStorage/localStorage";
+import {useActions} from "../../utils/redux-utils";
+import {actionShoppingCart} from "../../bll/shopping-cart-reducer/shopping-cart-reduser";
 
 
 function App() {
+    const {addProductToCart} = useActions(actionShoppingCart)
 
-    const {app} = useContext(Context)
+    useEffect(() => {
+
+        const localProductsInBasket = loadSettingsValue()
+        if (localProductsInBasket) {
+            addProductToCart(localProductsInBasket)
+        }
+    },[])
 
     return (
         <div className="App">

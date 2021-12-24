@@ -8,9 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router-dom"
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../utils/types";
-import {ShoppingCartStateType} from "../shoppingCart/shopping-cart-reduser";
-import {Grid} from "@mui/material";
+import {AppRootStateType} from "../../../utils/types";
+import {ShoppingCartStateType} from "../../../bll/shopping-cart-reducer/shopping-cart-reduser";
 
 
 export default function ButtonAppBar() {
@@ -33,6 +32,7 @@ export default function ButtonAppBar() {
     if (productsInShoppingCart.length > 0) {
         textPrice = `price: ${takePriceShoppingCart(productsInShoppingCart)}`
     }
+
 
     return (
         <Box sx={{flexGrow: 1, height: 100}}>

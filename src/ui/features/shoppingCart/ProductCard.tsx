@@ -1,8 +1,8 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from '@mui/material';
 import React from 'react'
-import {actionShoppingCart, ShoppingCartStateType} from "./shopping-cart-reduser";
-import {useActions} from "../../utils/redux-utils";
-import ownProductImage from '../../assecs/image/own-product-image.png'
+import {actionShoppingCart, ShoppingCartStateType} from "../../../bll/shopping-cart-reducer/shopping-cart-reduser";
+import {useActions} from "../../../utils/redux-utils";
+import ownProductImage from '../../../assecs/image/own-product-image.png'
 
 type ProductCardType = {
     prod: ShoppingCartStateType

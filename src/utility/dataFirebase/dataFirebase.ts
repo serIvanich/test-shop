@@ -1,9 +1,8 @@
-import {getDatabase, onValue, ref, set} from "firebase/database";
-import ProductImage from './assecs/image/parfum.jpg'
+import {getDatabase, ref, set} from "firebase/database";
+import ProductImage from '../../assecs/image/parfum.jpg'
 
-let products = [
-]
-const prod1 =  {
+let products = []
+const prod1 = {
     id: 1,
     name: 'pen',
     price: 4.50,
@@ -11,7 +10,7 @@ const prod1 =  {
     info: 'it is a good pen',
     category: 'stationery',
 }
-const prod2 =  {
+const prod2 = {
     id: 2,
     name: 'lamp',
     price: 220,
@@ -19,7 +18,7 @@ const prod2 =  {
     info: 'it is a lightest lamp',
     category: 'light',
 }
-const prod3 =  {
+const prod3 = {
     id: 3,
     name: 'keyboard',
     price: 970,
@@ -27,7 +26,7 @@ const prod3 =  {
     info: 'very reliable keyboard',
     category: 'compute',
 }
-const prod4 =  {
+const prod4 = {
     id: 4,
     name: 'handle-phone',
     price: 770,
@@ -35,7 +34,7 @@ const prod4 =  {
     info: 'white handle-phone',
     category: 'compute',
 }
-const prod5 =  {
+const prod5 = {
     id: 5,
     name: 'milk',
     price: 31,
@@ -43,7 +42,7 @@ const prod5 =  {
     info: 'it is a good milk',
     category: 'foods',
 }
-const prod6 =  {
+const prod6 = {
     id: 6,
     name: 'sugar',
     price: 35,
@@ -51,7 +50,7 @@ const prod6 =  {
     info: 'it is a sweetest sugar',
     category: 'foods',
 }
-const prod7 =  {
+const prod7 = {
     id: 7,
     name: 'bread',
     price: 15.50,
@@ -59,8 +58,8 @@ const prod7 =  {
     info: 'it is a good fresh bread',
     category: 'foods',
 }
-products.push(prod1,prod2,prod3,prod4,prod5,prod6,prod7)
-const  productsAssociativeArray = products.map(i => ({[i.id]: i}))
+products.push(prod1, prod2, prod3, prod4, prod5, prod6, prod7)
+const productsAssociativeArray = products.map(i => ({[i.id]: i}))
 console.log(productsAssociativeArray)
 
 function writeProdData(data: any) {
@@ -71,11 +70,11 @@ function writeProdData(data: any) {
     });
 
 }
+
 writeProdData(products)
 
 export const getDataFareBase = (dispatch: any, getDataProducts: any) => {
     debugger
 
 
-
-    }
+}

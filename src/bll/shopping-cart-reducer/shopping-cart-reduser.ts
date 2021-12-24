@@ -1,39 +1,47 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-
-
+import {ProductType} from "../products-reducer/products-reducer";
 
 const slice = createSlice({
 
-  name: 'products',
-  initialState: [] as Array<ProductType>,
-  reducers: {
-
-    getProducts(state, action: PayloadAction< Array<ProductType>>) {
-      state.push(...action.payload)
-    }
-//   const index = state.findIndex(tl => tl.id === action.payload.todoListId)
-//   state[index].filter = action.payload.value
-// },
+  name: 'shoppingCart',
+  initialState: {
+    products: [] as Array<ShoppingCartStateType>,
+sumPricesProducts: 0,
   },
+  reducers: {
+    addProductToCart(state, action: PayloadAction< ShoppingCartStateType[]>) {
+
+      state.products.push(...action.payload)
+    },
+    changeCount(state, action: PayloadAction<{id: number, count: number}>) {
+      state.products.forEach(i => i.id === action.payload.id ? i.count = action.payload.count : null
+     )
+    },
+    deleteProductAtCart(state, action: PayloadAction<{id: number}>) {
+      state.products = state.products.filter(i => i.id !== action.payload.id? i: null)
+    }
+  },
+  extraReducers: (builder) => {
+      return builder
+  }
 })
 
-export const productsReducer = slice.reducer
+export const shoppingCartReducer = slice.reducer
+export const actionShoppingCart = slice.actions
 
-export const actionProducts = slice.actions
+export type ShoppingCartStateType = ProductType & {count: number}
+// export type ShoppingCartType = {
+//   id: number
+//   name: string
+//   price: number
+//   photo: any
+//   info: string
+//   category: string
+// count: number
+// }
 
 
-export type ProductType = {
-  id: number 
-  name: string
-  price: number
-  photo: any
-  info: string
-  category: string
-
-}
-
-
-//reducers
+//redusers
 // changeTodoListFilter(state, action: PayloadAction<{ value: FilterValuesType, todoListId: string }>) {
 //   const index = state.findIndex(tl => tl.id === action.payload.todoListId)
 //   state[index].filter = action.payload.value

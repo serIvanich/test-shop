@@ -1,14 +1,14 @@
 import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './app/App';
+import App from './ui/app/App';
 import reportWebVitals from './reportWebVitals';
 import firebase from 'firebase/compat/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import {store} from "./app/store";
+import {store} from "./bll/store";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC88x9tvcoyb5IizAqFU_0DLknS9tZncHI",

@@ -1,6 +1,6 @@
 
 import React, { FC } from 'react'
-import preload from '../../assecs/image/1486.gif'
+import preload from '../../../assecs/image/1486.gif'
 import s from './Preloader.module.css'
 
 

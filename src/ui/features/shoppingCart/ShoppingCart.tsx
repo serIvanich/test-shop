@@ -2,9 +2,9 @@ import {Button, Container, Grid} from '@mui/material'
 import React from 'react'
 import {ProductCard} from "./ProductCard";
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../utils/types";
+import {AppRootStateType} from "../../../utils/types";
 import {CustomerForm} from "../customerForm/CustomerForm";
-import {ShoppingCartStateType} from "./shopping-cart-reduser";
+import {ShoppingCartStateType} from "../../../bll/shopping-cart-reducer/shopping-cart-reduser";
 import {useNavigate} from "react-router-dom";
 
 export const ShoppingCart: React.FC = () => {
