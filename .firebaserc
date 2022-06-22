@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "shop-test-4f18b"
-  }
+    "default": "shop-test-4f18b",
+    "firebase-test": "firetest-eb312",
+    "shop": "shop-test-4f18b"
+  },
+  "targets": {}
 }

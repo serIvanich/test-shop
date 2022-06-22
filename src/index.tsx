@@ -10,6 +10,12 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "./bll/store";
 
+import { initializeApp } from 'firebase/app';
+
+
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyC88x9tvcoyb5IizAqFU_0DLknS9tZncHI",
     authDomain: "shop-test-4f18b.firebaseapp.com",
@@ -20,7 +26,7 @@ const firebaseConfig = {
     appId: "1:448526955353:web:b2bb069b30d0b102f1d248"
 }
 
-const app = firebase.initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 
 export const Context =  createContext<any>({})
 

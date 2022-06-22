@@ -19,7 +19,7 @@ function App() {
         if (localProductsInBasket) {
             addProductToCart(localProductsInBasket)
         }
-    },[])
+    },[addProductToCart])
 
     return (
         <div className="App">
